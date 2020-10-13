@@ -18,5 +18,5 @@ public class ReactNativeVersion {
       "major", 0,
       "minor", 61,
       "patch", 5,
-      "prerelease", "jitsi.1");
+      "prerelease", "jitsi.2");
 }
