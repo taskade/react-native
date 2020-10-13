@@ -33,20 +33,23 @@ ADD keystores /app/keystores
 
 WORKDIR /app
 
-RUN buck fetch ReactAndroid/src/test/java/com/facebook/react/modules
-RUN buck fetch ReactAndroid/src/main/java/com/facebook/react
-RUN buck fetch ReactAndroid/src/main/java/com/facebook/react/shell
-RUN buck fetch ReactAndroid/src/test/...
-RUN buck fetch ReactAndroid/src/androidTest/...
+#RUN buck fetch ReactAndroid/src/test/java/com/facebook/react/modules
+#RUN buck fetch ReactAndroid/src/main/java/com/facebook/react
+#RUN buck fetch ReactAndroid/src/main/java/com/facebook/react/shell
+#RUN buck fetch ReactAndroid/src/test/...
+#RUN buck fetch ReactAndroid/src/androidTest/...
 
-RUN buck build ReactAndroid/src/main/java/com/facebook/react
-RUN buck build ReactAndroid/src/main/java/com/facebook/react/shell
+#RUN buck build ReactAndroid/src/main/java/com/facebook/react
+#RUN buck build ReactAndroid/src/main/java/com/facebook/react/shell
 
 ADD . /app
 
 RUN yarn
 
-RUN ./gradlew :ReactAndroid:downloadBoost :ReactAndroid:downloadDoubleConversion :ReactAndroid:downloadFolly :ReactAndroid:downloadGlog
+#RUN ./gradlew :ReactAndroid:downloadBoost :ReactAndroid:downloadDoubleConversion :ReactAndroid:downloadFolly :ReactAndroid:downloadGlog
 
-RUN ./gradlew :ReactAndroid:packageReactNdkLibsForBuck -Pjobs=1
+#RUN ./gradlew :ReactAndroid:packageReactNdkLibsForBuck -Pjobs=1
 
+## Jitsi - build and release archives to this very repo.
+RUN ./gradlew :ReactAndroid:assembleRelease
+RUN ./gradlew :ReactAndroid:installArchives
