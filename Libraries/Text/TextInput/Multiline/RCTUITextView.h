@@ -36,6 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 // The `caretHidden` property actually is not supported yet;
 // it's declared here only to conform to the interface.
 @property (nonatomic, assign) BOOL caretHidden;
+//@Taskadev1 Editor input prop declaration
+@property (nonatomic, assign) BOOL editorInput;
 
 @property (nonatomic, strong, nullable) NSString *inputAccessoryViewID;
 
