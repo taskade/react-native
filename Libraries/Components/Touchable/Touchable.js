@@ -18,6 +18,7 @@ const ReactNative = require('../../Renderer/shims/ReactNative');
 const StyleSheet = require('../../StyleSheet/StyleSheet');
 const TVEventHandler = require('../AppleTV/TVEventHandler');
 const UIManager = require('../../ReactNative/UIManager');
+const SoundManager = require('../Sound/SoundManager');
 const View = require('../View/View');
 
 const keyMirror = require('fbjs/lib/keyMirror');
@@ -875,7 +876,7 @@ const TouchableMixin = {
           this._endHighlight(e);
         }
         if (Platform.OS === 'android' && !this.props.touchSoundDisabled) {
-          this._playTouchSound();
+          SoundManager.playTouchSound();
         }
         this.touchableHandlePress(e);
       }
@@ -883,10 +884,6 @@ const TouchableMixin = {
 
     this.touchableDelayTimeout && clearTimeout(this.touchableDelayTimeout);
     this.touchableDelayTimeout = null;
-  },
-
-  _playTouchSound: function() {
-    UIManager.playTouchSound();
   },
 
   _startHighlight: function(e: PressEvent) {
