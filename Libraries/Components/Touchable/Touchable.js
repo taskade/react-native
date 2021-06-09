@@ -18,8 +18,8 @@ const ReactNative = require('../../Renderer/shims/ReactNative');
 const StyleSheet = require('../../StyleSheet/StyleSheet');
 const TVEventHandler = require('../AppleTV/TVEventHandler');
 const UIManager = require('../../ReactNative/UIManager');
-const SoundManager = require('../Sound/SoundManager');
 const View = require('../View/View');
+const SoundManager = require('../Sound/SoundManager');
 
 const keyMirror = require('fbjs/lib/keyMirror');
 const normalizeColor = require('../../Color/normalizeColor');
