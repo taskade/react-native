@@ -469,6 +469,11 @@ public class ReactTextInputManager extends BaseViewManager<ReactEditText, Layout
     view.setOnKeyPress(onKeyPress);
   }
 
+  @ReactProp(name = "editorInput", defaultBoolean = false)
+  public void setEditorInput(final ReactEditText view, boolean isEditorInput) {
+    view.setIsEditorInput(isEditorInput);
+  }
+
   // Sets the letter spacing as an absolute point size.
   // This extra handling, on top of what ReactBaseTextShadowNode already does, is required for the
   // correct display of spacing in placeholder (hint) text.
@@ -1003,6 +1008,19 @@ public class ReactTextInputManager extends BaseViewManager<ReactEditText, Layout
         return;
       }
 
+      // @Taskadev1 Prevent newline from being created
+      if (mEditText.mIsEditorInput) {
+        int mIndex = mEditText.getText().toString().lastIndexOf("\n");
+        if(mIndex != -1) {
+          if (mEditText.getText().length() > 0) { 
+            mEditText.setText(mEditText.getText().delete(mIndex , mIndex + 1));
+          }
+          mEditText.setSelection(mEditText.getText().length());
+          mEventDispatcher.dispatchEvent(new ReactTextInputKeyPressEvent(mEditText.getId(), "Enter"));
+          return;
+        }
+      }
+
       if (mEditText.getFabricViewStateManager().hasStateWrapper()) {
         // Fabric: communicate to C++ layer that text has changed
         // We need to call `incrementAndGetEventCounter` here explicitly because this
@@ -1038,7 +1056,8 @@ public class ReactTextInputManager extends BaseViewManager<ReactEditText, Layout
     }
 
     @Override
-    public void afterTextChanged(Editable s) {}
+    public void afterTextChanged(Editable s) {
+    }
   }
 
   @Override
