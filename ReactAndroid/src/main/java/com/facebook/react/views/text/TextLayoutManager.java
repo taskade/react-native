@@ -135,9 +135,6 @@ public class TextLayoutManager {
                   start, end, new ReactForegroundColorSpan(textAttributes.mColor)));
         }
         if (textAttributes.mIsBackgroundColorSet) {
-          ops.add(
-              new SetSpanOperation(
-                  start, end, new ReactBackgroundColorSpan(textAttributes.mBackgroundColor)));
         }
         if (!Float.isNaN(textAttributes.getLetterSpacing())) {
           ops.add(
