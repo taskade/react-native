@@ -165,11 +165,11 @@ NSString *const RCTTextAttributesTagAttributeName = @"RCTTextAttributesTagAttrib
     attributes[NSUnderlineColorAttributeName] = _textDecorationColor ?: effectiveForegroundColor;
   }
 
-  // @Taskadev1 Turn background color into underline highlight
+  // @Taskadev1 Turn background highlight into underline highlight
   if (_backgroundColor || !isnan(_opacity)) {
     isTextDecorationEnabled = YES;
     attributes[NSUnderlineColorAttributeName] = self.effectiveBackgroundColor;
-    attributes[NSUnderlineStyleAttributeName] = @(NSUnderlineStyleThick + NSUnderlineStyleThick);
+    attributes[NSUnderlineStyleAttributeName] = @(NSUnderlineStyleThick + NSUnderlineStyleSingle);
   }
 
   // Shadow
