@@ -997,7 +997,7 @@ public class ReactTextInputManager extends BaseViewManager<ReactEditText, Layout
       if (mEditText.mIsEditorInput) {
         if(mEditText.getText().toString().endsWith("\n")) {
           if (mEditText.getText().length() > 0) { 
-            mEditText.setText(mEditText.getText().trim());
+            mEditText.setText(mEditText.getText().toString().trim());
           }
           mEditText.setSelection(mEditText.getText().length());
           mEventDispatcher.dispatchEvent(new ReactTextInputKeyPressEvent(mEditText.getId(), "Enter"));
