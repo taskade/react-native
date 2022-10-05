@@ -995,10 +995,9 @@ public class ReactTextInputManager extends BaseViewManager<ReactEditText, Layout
 
       // @Taskadev1 Prevent newline from being created
       if (mEditText.mIsEditorInput) {
-        int mIndex = mEditText.getText().toString().lastIndexOf("\n");
-        if(mIndex != -1) {
+        if(mEditText.getText().toString().endsWith("\n")) {
           if (mEditText.getText().length() > 0) { 
-            mEditText.setText(mEditText.getText().delete(mIndex , mIndex + 1));
+            mEditText.setText(mEditText.getText().trim());
           }
           mEditText.setSelection(mEditText.getText().length());
           mEventDispatcher.dispatchEvent(new ReactTextInputKeyPressEvent(mEditText.getId(), "Enter"));
