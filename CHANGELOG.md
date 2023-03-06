@@ -1,3 +1,12 @@
+## 0.68.6-taskade (2023-03-06)
+
+
+### Features
+
+* Gapless underline text ([b015205](https://github.com/facebook/react-native/commit/b0152053b4c6048195d3d80dc1a5a7cbba283963))
+
+
+
 # Changelog
 
 ## v0.67.1
