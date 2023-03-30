@@ -1009,17 +1009,17 @@ public class ReactTextInputManager extends BaseViewManager<ReactEditText, Layout
       }
 
       // @Taskadev1 Prevent newline from being created
-      if (mEditText.mIsEditorInput) {
-        int mIndex = mEditText.getText().toString().lastIndexOf("\n");
-        if(mIndex != -1) {
-          if (mEditText.getText().length() > 0) { 
-            mEditText.setText(mEditText.getText().delete(mIndex , mIndex + 1));
-          }
-          mEditText.setSelection(mEditText.getText().length());
-          mEventDispatcher.dispatchEvent(new ReactTextInputKeyPressEvent(mEditText.getId(), "Enter"));
-          return;
-        }
-      }
+      // if (mEditText.mIsEditorInput) {
+      //   int mIndex = mEditText.getText().toString().lastIndexOf("\n");
+      //   if(mIndex != -1) {
+      //     if (mEditText.getText().length() > 0) { 
+      //       mEditText.setText(mEditText.getText().delete(mIndex , mIndex + 1));
+      //     }
+      //     mEditText.setSelection(mEditText.getText().length());
+      //     mEventDispatcher.dispatchEvent(new ReactTextInputKeyPressEvent(mEditText.getId(), "Enter"));
+      //     return;
+      //   }
+      // }
 
       if (mEditText.getFabricViewStateManager().hasStateWrapper()) {
         // Fabric: communicate to C++ layer that text has changed
@@ -1057,6 +1057,16 @@ public class ReactTextInputManager extends BaseViewManager<ReactEditText, Layout
 
     @Override
     public void afterTextChanged(Editable s) {
+      // @Taskadev1 Prevent newline from being created
+      if (mEditText.mIsEditorInput) {
+        for(int i = s.length()-1; i >= 0; i--){
+            if(s.charAt(i) == '\n'){
+                s.delete(i, i + 1);
+                mEventDispatcher.dispatchEvent(new ReactTextInputKeyPressEvent(mEditText.getId(), "Enter"));
+                return;
+            }
+        }
+      }
     }
   }
 
