@@ -1,0 +1,272 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.facebook.react",
+    "module": "react-native",
+    "version": "0.68.6",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.3.3"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "com.facebook.infer.annotation",
+          "module": "infer-annotation",
+          "version": {
+            "requires": "0.18.0"
+          }
+        },
+        {
+          "group": "com.facebook.yoga",
+          "module": "proguard-annotations",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "javax.inject",
+          "module": "javax.inject",
+          "version": {
+            "requires": "1"
+          }
+        },
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.0.2"
+          }
+        },
+        {
+          "group": "androidx.autofill",
+          "module": "autofill",
+          "version": {
+            "requires": "1.1.0"
+          }
+        },
+        {
+          "group": "androidx.swiperefreshlayout",
+          "module": "swiperefreshlayout",
+          "version": {
+            "requires": "1.0.0"
+          }
+        },
+        {
+          "group": "com.facebook.fresco",
+          "module": "fresco",
+          "version": {
+            "requires": "2.5.0"
+          }
+        },
+        {
+          "group": "com.facebook.fresco",
+          "module": "imagepipeline-okhttp3",
+          "version": {
+            "requires": "2.5.0"
+          }
+        },
+        {
+          "group": "com.facebook.fresco",
+          "module": "ui-common",
+          "version": {
+            "requires": "2.5.0"
+          }
+        },
+        {
+          "group": "com.facebook.soloader",
+          "module": "soloader",
+          "version": {
+            "requires": "0.10.3"
+          }
+        },
+        {
+          "group": "com.google.code.findbugs",
+          "module": "jsr305",
+          "version": {
+            "requires": "3.0.2"
+          }
+        },
+        {
+          "group": "com.squareup.okhttp3",
+          "module": "okhttp",
+          "version": {
+            "requires": "4.9.2"
+          }
+        },
+        {
+          "group": "com.squareup.okhttp3",
+          "module": "okhttp-urlconnection",
+          "version": {
+            "requires": "4.9.2"
+          }
+        },
+        {
+          "group": "com.squareup.okio",
+          "module": "okio",
+          "version": {
+            "requires": "2.9.0"
+          }
+        },
+        {
+          "group": "com.facebook.fbjni",
+          "module": "fbjni-java-only",
+          "version": {
+            "requires": "0.2.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "react-native-0.68.6.aar",
+          "url": "react-native-0.68.6.aar",
+          "size": 15449326,
+          "sha512": "8d0a4b116b4e70757b030d11b094aa66f2a57723b664df766c33e8943e2e3f6e3cf3aacf6645a7df3972dbdfe7336f39c0f708183af659c6d0c695a826e3770e",
+          "sha256": "c54798de80c03c0ecee7318a0dc5d30874ee5bb35a058a6408134c783e61e4a2",
+          "sha1": "61c1d9b44a46bcd8aa214aa5380f809bafb6a184",
+          "md5": "73493f1708cb262151914bfbc24a3193"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.facebook.infer.annotation",
+          "module": "infer-annotation",
+          "version": {
+            "requires": "0.18.0"
+          }
+        },
+        {
+          "group": "com.facebook.yoga",
+          "module": "proguard-annotations",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "javax.inject",
+          "module": "javax.inject",
+          "version": {
+            "requires": "1"
+          }
+        },
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.0.2"
+          }
+        },
+        {
+          "group": "androidx.autofill",
+          "module": "autofill",
+          "version": {
+            "requires": "1.1.0"
+          }
+        },
+        {
+          "group": "androidx.swiperefreshlayout",
+          "module": "swiperefreshlayout",
+          "version": {
+            "requires": "1.0.0"
+          }
+        },
+        {
+          "group": "com.facebook.fresco",
+          "module": "fresco",
+          "version": {
+            "requires": "2.5.0"
+          }
+        },
+        {
+          "group": "com.facebook.fresco",
+          "module": "imagepipeline-okhttp3",
+          "version": {
+            "requires": "2.5.0"
+          }
+        },
+        {
+          "group": "com.facebook.fresco",
+          "module": "ui-common",
+          "version": {
+            "requires": "2.5.0"
+          }
+        },
+        {
+          "group": "com.facebook.soloader",
+          "module": "soloader",
+          "version": {
+            "requires": "0.10.3"
+          }
+        },
+        {
+          "group": "com.google.code.findbugs",
+          "module": "jsr305",
+          "version": {
+            "requires": "3.0.2"
+          }
+        },
+        {
+          "group": "com.squareup.okhttp3",
+          "module": "okhttp",
+          "version": {
+            "requires": "4.9.2"
+          }
+        },
+        {
+          "group": "com.squareup.okhttp3",
+          "module": "okhttp-urlconnection",
+          "version": {
+            "requires": "4.9.2"
+          }
+        },
+        {
+          "group": "com.squareup.okio",
+          "module": "okio",
+          "version": {
+            "requires": "2.9.0"
+          }
+        },
+        {
+          "group": "com.facebook.fbjni",
+          "module": "fbjni-java-only",
+          "version": {
+            "requires": "0.2.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "react-native-0.68.6.aar",
+          "url": "react-native-0.68.6.aar",
+          "size": 15449326,
+          "sha512": "8d0a4b116b4e70757b030d11b094aa66f2a57723b664df766c33e8943e2e3f6e3cf3aacf6645a7df3972dbdfe7336f39c0f708183af659c6d0c695a826e3770e",
+          "sha256": "c54798de80c03c0ecee7318a0dc5d30874ee5bb35a058a6408134c783e61e4a2",
+          "sha1": "61c1d9b44a46bcd8aa214aa5380f809bafb6a184",
+          "md5": "73493f1708cb262151914bfbc24a3193"
+        }
+      ]
+    }
+  ]
+}
