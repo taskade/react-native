@@ -13,6 +13,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.BlendMode;
 import android.graphics.BlendModeColorFilter;
+import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -67,6 +68,7 @@ import com.facebook.react.views.text.DefaultStyleValuesUtil;
 import com.facebook.react.views.text.ReactBaseTextShadowNode;
 import com.facebook.react.views.text.ReactTextUpdate;
 import com.facebook.react.views.text.ReactTextViewManagerCallback;
+import com.facebook.react.views.text.ReactTypefaceUtils;
 import com.facebook.react.views.text.TextAttributeProps;
 import com.facebook.react.views.text.TextInlineImageSpan;
 import com.facebook.react.views.text.TextLayoutManager;
@@ -396,6 +398,11 @@ public class ReactTextInputManager extends BaseViewManager<ReactEditText, Layout
     view.setFontStyle(fontStyle);
   }
 
+  @ReactProp(name = ViewProps.FONT_VARIANT)
+  public void setFontVariant(ReactEditText view, @Nullable ReadableArray fontVariant) {
+    view.setFontFeatureSettings(ReactTypefaceUtils.parseFontVariant(fontVariant));
+  }
+
   @ReactProp(name = ViewProps.INCLUDE_FONT_PADDING, defaultBoolean = true)
   public void setIncludeFontPadding(ReactEditText view, boolean includepad) {
     view.setIncludeFontPadding(includepad);
@@ -467,6 +474,11 @@ public class ReactTextInputManager extends BaseViewManager<ReactEditText, Layout
   @ReactProp(name = "onKeyPress", defaultBoolean = false)
   public void setOnKeyPress(final ReactEditText view, boolean onKeyPress) {
     view.setOnKeyPress(onKeyPress);
+  }
+
+  @ReactProp(name = "editorInput", defaultBoolean = false)
+  public void setEditorInput(final ReactEditText view, boolean isEditorInput) {
+    view.setIsEditorInput(isEditorInput);
   }
 
   // Sets the letter spacing as an absolute point size.
@@ -903,6 +915,20 @@ public class ReactTextInputManager extends BaseViewManager<ReactEditText, Layout
     view.setAutoFocus(autoFocus);
   }
 
+  @ReactProp(name = ViewProps.TEXT_DECORATION_LINE)
+  public void setTextDecorationLine(ReactEditText view, @Nullable String textDecorationLineString) {
+    view.setPaintFlags(
+        view.getPaintFlags() & ~(Paint.STRIKE_THRU_TEXT_FLAG | Paint.UNDERLINE_TEXT_FLAG));
+
+    for (String token : textDecorationLineString.split(" ")) {
+      if (token.equals("underline")) {
+        view.setPaintFlags(view.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+      } else if (token.equals("line-through")) {
+        view.setPaintFlags(view.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+      }
+    }
+  }
+
   @ReactPropGroup(
       names = {
         ViewProps.BORDER_WIDTH,
@@ -1038,7 +1064,18 @@ public class ReactTextInputManager extends BaseViewManager<ReactEditText, Layout
     }
 
     @Override
-    public void afterTextChanged(Editable s) {}
+    public void afterTextChanged(Editable s) {
+      // @Taskadev1 Prevent newline from being created
+      if (mEditText.mIsEditorInput) {
+        for(int i = s.length()-1; i >= 0; i--) {
+            if(s.charAt(i) == '\n'){
+                s.delete(i, i + 1);
+                mEventDispatcher.dispatchEvent(new ReactTextInputKeyPressEvent(mEditText.getId(), "Enter"));
+                return;
+            }
+        }
+      }
+    }
   }
 
   @Override
