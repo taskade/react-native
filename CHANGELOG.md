@@ -1,3 +1,12 @@
+## 0.68.7-taskade (2023-05-02)
+
+
+### Bug Fixes
+
+* **xcode:** backport Xcode 14.3 fix to 68 ([a945bf6](https://github.com/facebook/react-native/commit/a945bf69b3567a71e9c06d748e15112bc2658128))
+
+
+
 # Changelog
 
 ## v0.67.1
