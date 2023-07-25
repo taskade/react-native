@@ -150,6 +150,7 @@ class AndroidTextInputProps final : public ViewProps, public BaseTextProps {
   SharedColor textShadowColor{};
   Float textShadowRadius{0.0};
   std::string textDecorationLine{};
+  const SharedColor textDecorationColor{};
   std::string fontStyle{};
   AndroidTextInputTextShadowOffsetStruct textShadowOffset{};
   Float lineHeight{0.0};
