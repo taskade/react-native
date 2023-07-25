@@ -81,7 +81,7 @@ enum class TextDecorationLineType {
   UnderlineStrikethrough
 };
 
-enum class TextDecorationStyle { Solid, Double, Dotted, Dashed };
+enum class TextDecorationStyle { Solid, Double, Dotted, Dashed, Taskade };
 
 enum class AccessibilityRole {
   None,
