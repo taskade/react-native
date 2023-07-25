@@ -604,6 +604,11 @@ export type NativeProps = $ReadOnly<{|
   fontFamily?: ?string,
 
   /**
+   * Taskade Specific Changes
+   */
+  taskadeEditorInput?: ?boolean,
+
+  /**
    * I cannot find where these are defined but JS complains without them.
    */
   textAlignVertical?: ?string,
