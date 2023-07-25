@@ -606,6 +606,7 @@ export type NativeProps = $ReadOnly<{|
   /**
    * Taskade Specific Changes
    */
+  textDecorationColor?: ?ColorValue,
   taskadeEditorInput?: ?boolean,
 
   /**
@@ -742,6 +743,7 @@ export const __INTERNAL_VIEW_CONFIG: PartialViewConfig = {
     borderLeftColor: {process: require('../../StyleSheet/processColor')},
     borderTopLeftRadius: true,
     borderTopColor: {process: require('../../StyleSheet/processColor')},
+    textDecorationColor: {process: require('../../StyleSheet/processColor')},
   },
 };
 
