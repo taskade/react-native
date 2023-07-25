@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL contextMenuHidden;
 @property (nonatomic, assign, getter=isEditable) BOOL editable;
 @property (nonatomic, assign) BOOL caretHidden;
+@property (nonatomic, assign) BOOL taskadeEditorInput; //@Taskdev1 Editor input prop declaration
 @property (nonatomic, assign) BOOL enablesReturnKeyAutomatically;
 @property (nonatomic, assign) UITextFieldViewMode clearButtonMode;
 @property (nonatomic, getter=isScrollEnabled) BOOL scrollEnabled;

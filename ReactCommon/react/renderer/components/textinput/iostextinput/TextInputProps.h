@@ -70,6 +70,7 @@ class TextInputProps final : public ViewProps, public BaseTextProps {
 
   bool onKeyPressSync{false};
   bool onChangeSync{false};
+  bool taskadeEditorInput{false};
 
   /*
    * Accessors
