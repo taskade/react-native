@@ -939,6 +939,13 @@ public class ReactTextInputManager extends BaseViewManager<ReactEditText, Layout
     }
   }
 
+  @ReactProp(name = ViewProps.TEXT_DECORATION_COLOR, customType = "Color")
+  public void setTextDecorationColor(ReactEditText view, @Nullable Integer color) {
+    if ((view.getPaintFlags() & Paint.UNDERLINE_TEXT_FLAG) != 0) {
+      view.setTextDecorationColor(color);
+    }
+  }
+
   @ReactPropGroup(
       names = {
         ViewProps.BORDER_WIDTH,
