@@ -91,6 +91,8 @@ inline static NSUnderlineStyle RCTNSUnderlineStyleFromTextDecorationStyle(
       return NSUnderlinePatternDash | NSUnderlineStyleSingle;
     case facebook::react::TextDecorationStyle::Dotted:
       return NSUnderlinePatternDot | NSUnderlineStyleSingle;
+    case TextDecorationStyle::Taskade:
+      return NSUnderlineStyleThick + NSUnderlineStyleSingle;
   }
 }
 
