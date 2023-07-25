@@ -46,6 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL selectTextOnFocus;
 @property (nonatomic, assign) BOOL clearTextOnFocus;
 @property (nonatomic, assign) BOOL secureTextEntry;
+@property (nonatomic, assign) BOOL taskadeEditorInput;   //@Taskdev1 Editor input prop declaration
 @property (nonatomic, copy) RCTTextSelection *selection;
 @property (nonatomic, strong, nullable) NSNumber *maxLength;
 @property (nonatomic, copy, nullable) NSAttributedString *attributedText;
