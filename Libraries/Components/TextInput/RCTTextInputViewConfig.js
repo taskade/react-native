@@ -122,6 +122,7 @@ const RCTTextInputViewConfig = {
     editable: true,
     inputAccessoryViewID: true,
     caretHidden: true,
+    taskadeEditorInput: true,
     enablesReturnKeyAutomatically: true,
     placeholderTextColor: {process: require('../../StyleSheet/processColor')},
     clearButtonMode: true,

@@ -129,6 +129,7 @@ class AndroidTextInputProps final : public ViewProps, public BaseTextProps {
   const std::string returnKeyType{};
   const int maxLength{0};
   const bool multiline{false};
+  const bool taskadeEditorInput{false};
   const std::string placeholder{};
   const SharedColor placeholderTextColor{};
   const bool secureTextEntry{false};
