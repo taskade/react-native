@@ -10,6 +10,7 @@
 #import <React/RCTBridge.h>
 #import <React/RCTShadowView+Layout.h>
 #import <React/RCTUIManager.h>
+#import <React/TaskadeLayoutManager.h>
 #import <yoga/Yoga.h>
 
 #import "NSTextStorage+FontScaling.h"
@@ -232,7 +233,7 @@
     _maximumNumberOfLines > 0 ? _lineBreakMode : NSLineBreakByClipping;
   textContainer.maximumNumberOfLines = _maximumNumberOfLines;
 
-  NSLayoutManager *layoutManager = [NSLayoutManager new];
+  TaskadeLayoutManager *layoutManager = [TaskadeLayoutManager new];
   layoutManager.usesFontLeading = NO;
   [layoutManager addTextContainer:textContainer];
 
