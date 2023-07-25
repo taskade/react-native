@@ -173,6 +173,10 @@ AndroidTextInputProps::AndroidTextInputProps(
           "textDecorationLine",
           sourceProps.textDecorationLine,
           {})),
+      textDecorationColor(convertRawProp(context, rawProps,
+          "textDecorationLine",
+          sourceProps.textDecorationColor,
+          {})),
       fontStyle(CoreFeatures::enablePropIteratorSetter? sourceProps.fontStyle :
           convertRawProp(context, rawProps, "fontStyle", sourceProps.fontStyle, {})),
       textShadowOffset(CoreFeatures::enablePropIteratorSetter? sourceProps.textShadowOffset : convertRawProp(context, rawProps,
@@ -458,6 +462,7 @@ folly::dynamic AndroidTextInputProps::getDynamic() const {
   props["textShadowColor"] = toAndroidRepr(textShadowColor);
   props["textShadowRadius"] = textShadowRadius;
   props["textDecorationLine"] = textDecorationLine;
+  props["textDecorationColor"] = toAndroidRepr(textDecorationColor);
   props["fontStyle"] = fontStyle;
   props["textShadowOffset"] = toDynamic(textShadowOffset);
   props["lineHeight"] = lineHeight;

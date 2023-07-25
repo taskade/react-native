@@ -212,7 +212,7 @@ public abstract class ReactBaseTextShadowNode extends LayoutShadowNode {
                     textShadowNode.getThemedContext().getAssets())));
       }
       if (textShadowNode.mIsUnderlineTextDecorationSet) {
-        ops.add(new SetSpanOperation(start, end, new ReactUnderlineSpan()));
+        ops.add(new SetSpanOperation(start, end, new ReactUnderlineSpan(textShadowNode.mTextDecorationColor)));
       }
       if (textShadowNode.mIsLineThroughTextDecorationSet) {
         ops.add(new SetSpanOperation(start, end, new ReactStrikethroughSpan()));
@@ -345,6 +345,7 @@ public abstract class ReactBaseTextShadowNode extends LayoutShadowNode {
   protected boolean mIncludeFontPadding = true;
   protected boolean mAdjustsFontSizeToFit = false;
   protected float mMinimumFontScale = 0;
+  protected @Nullable Integer mTextDecorationColor;
 
   /**
    * mFontStyle can be {@link Typeface#NORMAL} or {@link Typeface#ITALIC}. mFontWeight can be {@link
@@ -494,6 +495,12 @@ public abstract class ReactBaseTextShadowNode extends LayoutShadowNode {
       }
       markUpdated();
     }
+  }
+
+  @ReactProp(name = ViewProps.TEXT_DECORATION_COLOR, customType = "Color")
+  public void setTextDecorationColor(@Nullable Integer color) {
+    mTextDecorationColor = color;
+    markUpdated();
   }
 
   @ReactProp(name = ViewProps.ACCESSIBILITY_ROLE)
