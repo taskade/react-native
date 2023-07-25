@@ -607,7 +607,7 @@ export type ____TextStyle_InternalCore = $ReadOnly<{
     | 'underline'
     | 'line-through'
     | 'underline line-through',
-  textDecorationStyle?: 'solid' | 'double' | 'dotted' | 'dashed',
+  textDecorationStyle?: 'solid' | 'double' | 'dotted' | 'dashed' | 'taskade',
   textDecorationColor?: ____ColorValue_Internal,
   textTransform?: 'none' | 'capitalize' | 'uppercase' | 'lowercase',
   writingDirection?: 'auto' | 'ltr' | 'rtl',

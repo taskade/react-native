@@ -68,6 +68,8 @@ inline static NSUnderlineStyle RCTNSUnderlineStyleFromTextDecorationStyle(TextDe
       return NSUnderlinePatternDash | NSUnderlineStyleSingle;
     case TextDecorationStyle::Dotted:
       return NSUnderlinePatternDot | NSUnderlineStyleSingle;
+    case TextDecorationStyle::Taskade:
+      return NSUnderlineStyleThick + NSUnderlineStyleSingle;
   }
 }
 
