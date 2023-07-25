@@ -258,7 +258,13 @@ export interface TextStyleIOS extends ViewStyle {
   fontVariant?: FontVariant[] | undefined;
   letterSpacing?: number | undefined;
   textDecorationColor?: ColorValue | undefined;
-  textDecorationStyle?: 'solid' | 'double' | 'dotted' | 'dashed' | undefined;
+  textDecorationStyle?:
+    | 'solid'
+    | 'double'
+    | 'dotted'
+    | 'dashed'
+    | 'taskade'
+    | undefined;
   writingDirection?: 'auto' | 'ltr' | 'rtl' | undefined;
 }
 
@@ -301,7 +307,13 @@ export interface TextStyle extends TextStyleIOS, TextStyleAndroid, ViewStyle {
     | 'line-through'
     | 'underline line-through'
     | undefined;
-  textDecorationStyle?: 'solid' | 'double' | 'dotted' | 'dashed' | undefined;
+  textDecorationStyle?:
+    | 'solid'
+    | 'double'
+    | 'dotted'
+    | 'dashed'
+    | 'taskade'
+    | undefined;
   textDecorationColor?: ColorValue | undefined;
   textShadowColor?: ColorValue | undefined;
   textShadowOffset?: {width: number; height: number} | undefined;
