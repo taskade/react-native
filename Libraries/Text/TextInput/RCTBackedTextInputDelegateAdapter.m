@@ -219,6 +219,11 @@ static void *TextFieldSelectionObservingContext = &TextFieldSelectionObservingCo
   NSString *newText =
     [_backedTextInputView.textInputDelegate textInputShouldChangeText:text inRange:range];
 
+  //@Taskadev1 Prevent enter for editor input
+  if (_backedTextInputView.taskadeEditorInput && [text isEqualToString:@"\n"]) {
+    return NO;
+  }
+
   if (newText == nil) {
     return NO;
   }

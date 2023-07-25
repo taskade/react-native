@@ -122,6 +122,8 @@ public class ReactEditText extends AppCompatEditText
   private final FabricViewStateManager mFabricViewStateManager = new FabricViewStateManager();
   protected boolean mDisableTextDiffing = false;
 
+  // @Taskadev1 Editor input prop declaration
+  protected boolean mIsTaskadeEditor = false;
   protected boolean mIsSettingTextFromState = false;
 
   private static final KeyListener sKeyListener = QwertyKeyListener.getInstanceForFullKeyboard();
@@ -391,6 +393,11 @@ public class ReactEditText extends AppCompatEditText
 
   public void setOnKeyPress(boolean onKeyPress) {
     mOnKeyPress = onKeyPress;
+  }
+
+  // @Taskadev1 Set editor input prop
+  public void setTaskadeEditorInput(boolean isTaskadeEditor) {
+    mIsTaskadeEditor = isTaskadeEditor;
   }
 
   public boolean getBlurOnSubmit() {
