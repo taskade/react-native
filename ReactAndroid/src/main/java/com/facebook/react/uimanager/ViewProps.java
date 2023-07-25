@@ -103,6 +103,7 @@ public class ViewProps {
   public static final String TEXT_ALIGN = "textAlign";
   public static final String TEXT_ALIGN_VERTICAL = "textAlignVertical";
   public static final String TEXT_DECORATION_LINE = "textDecorationLine";
+  public static final String TEXT_DECORATION_COLOR = "textDecorationColor";
   public static final String TEXT_BREAK_STRATEGY = "textBreakStrategy";
   public static final String OPACITY = "opacity";
   public static final String OVERFLOW = "overflow";

@@ -78,6 +78,7 @@ public class TextAttributeProps {
   protected int mColor;
   protected boolean mIsBackgroundColorSet = false;
   protected int mBackgroundColor;
+  protected @Nullable Integer mTextDecorationColor = null;
 
   protected int mNumberOfLines = UNSET;
   protected int mFontSize = UNSET;
@@ -185,6 +186,7 @@ public class TextAttributeProps {
         case TA_KEY_BEST_WRITING_DIRECTION:
           break;
         case TA_KEY_TEXT_DECORATION_COLOR:
+          result.setTextDecorationColor(entry.getIntValue());
           break;
         case TA_KEY_TEXT_DECORATION_LINE:
           result.setTextDecorationLine(entry.getStringValue());
@@ -241,6 +243,10 @@ public class TextAttributeProps {
     result.setTextDecorationLine(getStringProp(props, ViewProps.TEXT_DECORATION_LINE));
     result.setTextShadowOffset(
         props.hasKey(PROP_SHADOW_OFFSET) ? props.getMap(PROP_SHADOW_OFFSET) : null);
+    result.setTextDecorationColor(
+        props.hasKey(ViewProps.TEXT_DECORATION_COLOR)
+            ? props.getInt(ViewProps.TEXT_DECORATION_COLOR, 0)
+            : null);
     result.setTextShadowRadius(getFloatProp(props, PROP_SHADOW_RADIUS, 1));
     result.setTextShadowColor(getIntProp(props, PROP_SHADOW_COLOR, DEFAULT_TEXT_SHADOW_COLOR));
     result.setTextTransform(getStringProp(props, PROP_TEXT_TRANSFORM));
@@ -474,6 +480,10 @@ public class TextAttributeProps {
         }
       }
     }
+  }
+
+    private void setTextDecorationColor(@Nullable Integer color) {
+    mTextDecorationColor = color;
   }
 
   private void setTextShadowOffset(ReadableMap offsetMap) {

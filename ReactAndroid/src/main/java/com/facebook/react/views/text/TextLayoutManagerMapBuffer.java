@@ -176,7 +176,7 @@ public class TextLayoutManagerMapBuffer {
                       context.getAssets())));
         }
         if (textAttributes.mIsUnderlineTextDecorationSet) {
-          ops.add(new SetSpanOperation(start, end, new ReactUnderlineSpan()));
+          ops.add(new SetSpanOperation(start, end, new ReactUnderlineSpan(textAttributes.mTextDecorationColor)));
         }
         if (textAttributes.mIsLineThroughTextDecorationSet) {
           ops.add(new SetSpanOperation(start, end, new ReactStrikethroughSpan()));

@@ -116,6 +116,7 @@ public class ReactEditText extends AppCompatEditText
   private int mFontStyle = UNSET;
   private boolean mAutoFocus = false;
   private boolean mDidAttachToWindow = false;
+  private @Nullable Integer mTextDecorationColor = null;
 
   private ReactViewBackgroundManager mReactBackgroundManager;
 
@@ -782,7 +783,12 @@ public class ReactEditText extends AppCompatEditText
     }
 
     if ((getPaintFlags() & Paint.UNDERLINE_TEXT_FLAG) != 0) {
-      workingText.setSpan(new ReactUnderlineSpan(), 0, workingText.length(), spanFlags);
+      workingText.setSpan(
+        new ReactUnderlineSpan(mTextDecorationColor),
+        0,
+        workingText.length(),
+        spanFlags
+      );
     }
 
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -1091,6 +1097,10 @@ public class ReactEditText extends AppCompatEditText
 
   public void setAutoFocus(boolean autoFocus) {
     mAutoFocus = autoFocus;
+  }
+
+  public void setTextDecorationColor(@Nullable Integer color) {
+    mTextDecorationColor = color;
   }
 
   protected void applyTextAttributes() {
