@@ -477,6 +477,11 @@ public class ReactTextInputManager extends BaseViewManager<ReactEditText, Layout
     view.setOnKeyPress(onKeyPress);
   }
 
+  @ReactProp(name = "taskadeEditorInput", defaultBoolean = false)
+  public void setTaskadeEditorInput(final ReactEditText view, boolean isTaskadeEditor) {
+    view.setTaskadeEditorInput(isTaskadeEditor);
+  }
+
   // Sets the letter spacing as an absolute point size.
   // This extra handling, on top of what ReactBaseTextShadowNode already does, is required for the
   // correct display of spacing in placeholder (hint) text.
@@ -925,12 +930,21 @@ public class ReactTextInputManager extends BaseViewManager<ReactEditText, Layout
     view.setPaintFlags(
         view.getPaintFlags() & ~(Paint.STRIKE_THRU_TEXT_FLAG | Paint.UNDERLINE_TEXT_FLAG));
 
-    for (String token : textDecorationLineString.split(" ")) {
-      if (token.equals("underline")) {
-        view.setPaintFlags(view.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-      } else if (token.equals("line-through")) {
-        view.setPaintFlags(view.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+    if (textDecorationLineString != null) {
+      for (String token : textDecorationLineString.split(" ")) {
+        if (token.equals("underline")) {
+          view.setPaintFlags(view.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        } else if (token.equals("line-through")) {
+          view.setPaintFlags(view.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        }
       }
+    }
+  }
+
+  @ReactProp(name = ViewProps.TEXT_DECORATION_COLOR, customType = "Color")
+  public void setTextDecorationColor(ReactEditText view, @Nullable Integer color) {
+    if ((view.getPaintFlags() & Paint.UNDERLINE_TEXT_FLAG) != 0) {
+      view.setTextDecorationColor(color);
     }
   }
 
@@ -1069,7 +1083,18 @@ public class ReactTextInputManager extends BaseViewManager<ReactEditText, Layout
     }
 
     @Override
-    public void afterTextChanged(Editable s) {}
+    public void afterTextChanged(Editable s) {
+      // @Taskadev1 Prevent newline from being created
+      if (mEditText.mIsTaskadeEditor) {
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == '\n') {
+                s.delete(i, i + 1);
+                mEventDispatcher.dispatchEvent(new ReactTextInputKeyPressEvent(mEditText.getId(), "Enter"));
+                return;
+            }
+        }
+      }
+    }
   }
 
   @Override

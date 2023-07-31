@@ -120,6 +120,10 @@ AndroidTextInputProps::AndroidTextInputProps(
           "multiline",
           sourceProps.multiline,
           {false})),
+      taskadeEditorInput(convertRawProp(context, rawProps,
+          "taskadeEditorInput",
+          sourceProps.taskadeEditorInput,
+          {false})),
       placeholder(
           convertRawProp(context, rawProps, "placeholder", sourceProps.placeholder, {})),
       placeholderTextColor(convertRawProp(context, rawProps,
@@ -168,6 +172,10 @@ AndroidTextInputProps::AndroidTextInputProps(
       textDecorationLine(convertRawProp(context, rawProps,
           "textDecorationLine",
           sourceProps.textDecorationLine,
+          {})),
+      textDecorationColor(convertRawProp(context, rawProps,
+          "textDecorationLine",
+          sourceProps.textDecorationColor,
           {})),
       fontStyle(
           convertRawProp(context, rawProps, "fontStyle", sourceProps.fontStyle, {})),
@@ -281,6 +289,7 @@ folly::dynamic AndroidTextInputProps::getDynamic() const {
   props["returnKeyType"] = returnKeyType;
   props["maxLength"] = maxLength;
   props["multiline"] = multiline;
+  props["taskadeEditorInput"] = taskadeEditorInput;
   props["placeholder"] = placeholder;
   props["placeholderTextColor"] = toAndroidRepr(placeholderTextColor);
   props["secureTextEntry"] = secureTextEntry;
@@ -295,6 +304,7 @@ folly::dynamic AndroidTextInputProps::getDynamic() const {
   props["textShadowColor"] = toAndroidRepr(textShadowColor);
   props["textShadowRadius"] = textShadowRadius;
   props["textDecorationLine"] = textDecorationLine;
+  props["textDecorationColor"] = toAndroidRepr(textDecorationColor);
   props["fontStyle"] = fontStyle;
   props["textShadowOffset"] = toDynamic(textShadowOffset);
   props["lineHeight"] = lineHeight;

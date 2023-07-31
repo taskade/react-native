@@ -118,6 +118,7 @@ public class ReactEditText extends AppCompatEditText
   private int mFontStyle = UNSET;
   private boolean mAutoFocus = false;
   private boolean mDidAttachToWindow = false;
+  private @Nullable Integer mTextDecorationColor = null;
 
   private ReactViewBackgroundManager mReactBackgroundManager;
 
@@ -125,6 +126,8 @@ public class ReactEditText extends AppCompatEditText
       new FabricViewStateManager();
   protected boolean mDisableTextDiffing = false;
 
+  // @Taskadev1 Editor input prop declaration
+  protected boolean mIsTaskadeEditor = false;
   protected boolean mIsSettingTextFromState = false;
 
   private static final KeyListener sKeyListener = QwertyKeyListener.getInstanceForFullKeyboard();
@@ -392,6 +395,11 @@ public class ReactEditText extends AppCompatEditText
 
   public void setOnKeyPress(boolean onKeyPress) {
     mOnKeyPress = onKeyPress;
+  }
+
+  // @Taskadev1 Set editor input prop
+  public void setTaskadeEditorInput(boolean isTaskadeEditor) {
+    mIsTaskadeEditor = isTaskadeEditor;
   }
 
   public boolean getBlurOnSubmit() {
@@ -780,7 +788,12 @@ public class ReactEditText extends AppCompatEditText
     }
 
     if ((getPaintFlags() & Paint.UNDERLINE_TEXT_FLAG) != 0) {
-      workingText.setSpan(new ReactUnderlineSpan(), 0, workingText.length(), spanFlags);
+      workingText.setSpan(
+        new ReactUnderlineSpan(mTextDecorationColor),
+        0,
+        workingText.length(),
+        spanFlags
+      );
     }
 
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -1145,6 +1158,10 @@ public class ReactEditText extends AppCompatEditText
 
   public void setAutoFocus(boolean autoFocus) {
     mAutoFocus = autoFocus;
+  }
+
+  public void setTextDecorationColor(@Nullable Integer color) {
+    mTextDecorationColor = color;
   }
 
   protected void applyTextAttributes() {

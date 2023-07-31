@@ -487,6 +487,8 @@ inline void fromRawValue(
       result = TextDecorationStyle::Dotted;
     } else if (string == "dashed") {
       result = TextDecorationStyle::Dashed;
+    } else if (string == "taskade") {
+      result = TextDecorationStyle::Taskade;
     } else {
       LOG(ERROR) << "Unsupported TextDecorationStyle value: " << string;
       react_native_assert(false);
@@ -511,6 +513,8 @@ inline std::string toString(const TextDecorationStyle &textDecorationStyle) {
       return "dotted";
     case TextDecorationStyle::Dashed:
       return "dashed";
+    case TextDecorationStyle::Taskade:
+      return "taskade";
   }
 
   LOG(ERROR) << "Unsupported TextDecorationStyle value";

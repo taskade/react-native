@@ -576,6 +576,12 @@ export type NativeProps = $ReadOnly<{|
   fontFamily?: ?string,
 
   /**
+   * Taskade Specific Changes
+   */
+  textDecorationColor?: ?ColorValue,
+  taskadeEditorInput?: ?boolean,
+
+  /**
    * I cannot find where these are defined but JS complains without them.
    */
   textAlignVertical?: ?string,
@@ -709,6 +715,7 @@ export const __INTERNAL_VIEW_CONFIG: PartialViewConfig = {
     borderLeftColor: {process: require('../../StyleSheet/processColor')},
     borderTopLeftRadius: true,
     borderTopColor: {process: require('../../StyleSheet/processColor')},
+    textDecorationColor: {process: require('../../StyleSheet/processColor')},
   },
 };
 
