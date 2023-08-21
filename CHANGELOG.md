@@ -1,3 +1,12 @@
+## 0.70.13-taskade (2023-08-21)
+
+
+### Bug Fixes
+
+* **android:** Crash when textDecorationLine is null ([66e168a](https://github.com/facebook/react-native/commit/66e168a65462682f9d6e6243b1946eb03da9a752))
+
+
+
 # Changelog
 
 ## v0.69.1
