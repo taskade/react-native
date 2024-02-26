@@ -278,7 +278,13 @@ export type FontVariant =
 export interface TextStyleIOS extends ViewStyle {
   fontVariant?: FontVariant[] | undefined;
   textDecorationColor?: ColorValue | undefined;
-  textDecorationStyle?: 'solid' | 'double' | 'dotted' | 'dashed' | undefined;
+  textDecorationStyle?:
+    | 'solid'
+    | 'double'
+    | 'dotted'
+    | 'dashed'
+    | 'taskade'
+    | undefined;
   writingDirection?: 'auto' | 'ltr' | 'rtl' | undefined;
 }
 
@@ -320,6 +326,7 @@ export interface TextStyle extends TextStyleIOS, TextStyleAndroid, ViewStyle {
     | 'underline'
     | 'line-through'
     | 'underline line-through'
+    | 'taskade'
     | undefined;
   textDecorationStyle?: 'solid' | 'double' | 'dotted' | 'dashed' | undefined;
   textDecorationColor?: ColorValue | undefined;

@@ -331,6 +331,7 @@ RCT_ENUM_CONVERTER(
       @"double" : @(NSUnderlineStyleDouble),
       @"dotted" : @(NSUnderlinePatternDot | NSUnderlineStyleSingle),
       @"dashed" : @(NSUnderlinePatternDash | NSUnderlineStyleSingle),
+      @"taskade": @(NSUnderlineStyleThick + NSUnderlineStyleSingle),
     }),
     NSUnderlineStyleSingle,
     integerValue)
