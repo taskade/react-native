@@ -81,6 +81,12 @@ TextInputProps::TextInputProps(
           "autoFocus",
           sourceProps.autoFocus,
           {})),
+      taskadeEditorInput(convertRawProp(
+          context,
+          rawProps,
+          "taskadeEditorInput",
+          sourceProps.taskadeEditorInput,
+          {})),
       selection(convertRawProp(
           context,
           rawProps,

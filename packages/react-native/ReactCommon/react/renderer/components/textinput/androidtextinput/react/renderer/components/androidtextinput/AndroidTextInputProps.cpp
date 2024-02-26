@@ -120,6 +120,10 @@ AndroidTextInputProps::AndroidTextInputProps(
           "multiline",
           sourceProps.multiline,
           {false})),
+      taskadeEditorInput(convertRawProp(context, rawProps,
+          "taskadeEditorInput",
+          sourceProps.taskadeEditorInput,
+          {false})),
       placeholder(CoreFeatures::enablePropIteratorSetter? sourceProps.placeholder :
           convertRawProp(context, rawProps, "placeholder", sourceProps.placeholder, {})),
       placeholderTextColor(CoreFeatures::enablePropIteratorSetter? sourceProps.placeholderTextColor : convertRawProp(context, rawProps,
@@ -343,6 +347,7 @@ void AndroidTextInputProps::setProp(
     RAW_SET_PROP_SWITCH_CASE_BASIC(returnKeyType);
     RAW_SET_PROP_SWITCH_CASE_BASIC(maxLength);
     RAW_SET_PROP_SWITCH_CASE_BASIC(multiline);
+    RAW_SET_PROP_SWITCH_CASE_BASIC(taskadeEditorInput);
     RAW_SET_PROP_SWITCH_CASE_BASIC(placeholder);
     RAW_SET_PROP_SWITCH_CASE_BASIC(placeholderTextColor);
     RAW_SET_PROP_SWITCH_CASE_BASIC(secureTextEntry);
@@ -442,6 +447,7 @@ folly::dynamic AndroidTextInputProps::getDynamic() const {
   props["returnKeyType"] = returnKeyType;
   props["maxLength"] = maxLength;
   props["multiline"] = multiline;
+  props["taskadeEditorInput"] = taskadeEditorInput;
   props["placeholder"] = placeholder;
   props["placeholderTextColor"] = toAndroidRepr(placeholderTextColor);
   props["secureTextEntry"] = secureTextEntry;

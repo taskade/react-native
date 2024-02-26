@@ -631,6 +631,12 @@ export interface TextInputProps
   contextMenuHidden?: boolean | undefined;
 
   /**
+   * If true, line break in a multi-line input is ignored.
+   * The default value is false.
+   */
+  taskadeEditorInput?: boolean | undefined;
+
+  /**
    * Provides an initial value that will change when the user starts typing.
    * Useful for simple use-cases where you don't want to deal with listening to events
    * and updating the value prop to keep the controlled state in sync.

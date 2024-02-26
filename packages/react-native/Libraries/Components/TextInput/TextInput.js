@@ -592,6 +592,11 @@ export type Props = $ReadOnly<{|
   caretHidden?: ?boolean,
 
   /*
+   * If `true`, taskadeEditorInput is activated. The default value is `false`.
+   */
+  taskadeEditorInput?: ?boolean,
+
+  /*
    * If `true`, contextMenuHidden is hidden. The default value is `false`.
    */
   contextMenuHidden?: ?boolean,
